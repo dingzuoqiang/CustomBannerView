@@ -1,4 +1,4 @@
-package com.dzq.banners.custombannerview;
+package com.dzq.widget;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -22,11 +22,16 @@ import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
 import com.bumptech.glide.Glide;
+import com.dzq.banners.custombannerview.R;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by dingzuoqiang on 2017/6/15.
+ * Email: 530858106@qq.com
+ */
 public class CustomBannerView extends RelativeLayout {
 
     private CustomViewPager pager;

@@ -5,15 +5,17 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.dzq.banners.custombannerview.R;
+import com.dzq.widget.CustomBannerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by dingzuoqiang on 2017/6/15.
+ * Email: 530858106@qq.com
+ */
 public class MainActivity extends AppCompatActivity {
 
     private CustomBannerView customBannerView;
@@ -44,22 +46,20 @@ public class MainActivity extends AppCompatActivity {
         viewRes.add(R.drawable.a5);
         customBannerView.setViewRes(viewRes);
 
-//        List<String> urls = new ArrayList<>();
-//        urls.add("http://pic.58pic.com/58pic/13/20/45/08h58PICR7Y_1024.jpg");
-//        urls.add("http://pic36.nipic.com/20131227/10080014_160615476000_2.jpg");
-//        urls.add("http://img3.3lian.com/2013/v10/4/d/81.jpg");
-//        urls.add("http://pic9.nipic.com/20100814/668573_170129076821_2.jpg");
-//        customBannerView.setViewUrls(urls);
-//        customBannerView.setOnBannerItemClickListener(new CustomBannerView.OnBannerItemClickListener() {
-//            @Override
-//            public void onItemClick(int position) {
-//                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
-//            }
-//        });
+        List<String> urls = new ArrayList<>();
+        urls.add("http://pic.58pic.com/58pic/13/20/45/08h58PICR7Y_1024.jpg");
+        urls.add("http://pic36.nipic.com/20131227/10080014_160615476000_2.jpg");
+        urls.add("http://img3.3lian.com/2013/v10/4/d/81.jpg");
+        urls.add("http://pic9.nipic.com/20100814/668573_170129076821_2.jpg");
 
         CustomBannerView customBannerView2 = (CustomBannerView) findViewById(R.id.banner2);
-
-        customBannerView2.setViewRes(viewRes);
+        customBannerView2.setViewUrls(urls);
+        customBannerView2.setOnBannerItemClickListener(new CustomBannerView.OnBannerItemClickListener() {
+            @Override
+            public void onItemClick(int position) {
+                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+            }
+        });
 
         CustomBannerView customBannerView3 = (CustomBannerView) findViewById(R.id.banner3);
         customBannerView3.setLoop(false);
@@ -67,11 +67,5 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
 
 }

@@ -1,10 +1,14 @@
-package com.dzq.banners.custombannerview;
+package com.dzq.widget;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 
+/**
+ * Created by dingzuoqiang on 2017/6/15.
+ * Email: 530858106@qq.com
+ */
 public class CustomViewPager extends ViewPager {
 
     private boolean isCanScroll = true;
