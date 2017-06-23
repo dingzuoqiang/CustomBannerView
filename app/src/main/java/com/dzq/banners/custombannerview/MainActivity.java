@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity {
 
         customBannerView = (CustomBannerView) findViewById(R.id.banner);
         List<Integer> viewRes = new ArrayList<>();
-        viewRes.add(R.drawable.a1);
-        viewRes.add(R.drawable.a2);
-        viewRes.add(R.drawable.a3);
-        viewRes.add(R.drawable.a4);
+        viewRes.add(R.drawable.a5);
+        viewRes.add(R.drawable.a5);
+        viewRes.add(R.drawable.a5);
+        viewRes.add(R.drawable.a5);
         viewRes.add(R.drawable.a5);
         customBannerView.setViewRes(viewRes);
 
