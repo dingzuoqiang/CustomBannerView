@@ -275,7 +275,7 @@ public class CustomBannerView extends RelativeLayout {
                 }
             }
         });
-        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
         if (defaultImage != 0) {
             Glide.with(getContext()).load(url).centerCrop().placeholder(defaultImage).crossFade().into(imageView);
         } else {
