@@ -12,3 +12,5 @@ build.gradle 里 配置：
 
 代码上传到github时，使用下面代码
 apply plugin: 'com.android.library'
+
+![image](https://github.com/dingzuoqiang/CustomBannerView/blob/master/Screenshot_2017-08-09.png)
