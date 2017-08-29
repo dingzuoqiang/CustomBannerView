@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.dzq.widget.CustomBannerView;
@@ -47,10 +48,12 @@ public class MainActivity extends AppCompatActivity {
         List<String> urls = new ArrayList<>();
         urls.add("http://pic.58pic.com/58pic/13/20/45/08h58PICR7Y_1024.jpg");
         urls.add("http://pic36.nipic.com/20131227/10080014_160615476000_2.jpg");
-        urls.add("http://img3.3lian.com/2013/v10/4/d/81.jpg");
+        urls.add("http://img3.3lian.com/2013/v10/4/d/81.jpg1");
         urls.add("http://pic9.nipic.com/20100814/668573_170129076821_2.jpg");
 
         CustomBannerView customBannerView2 = (CustomBannerView) findViewById(R.id.banner2);
+        customBannerView2.setScaleType(ImageView.ScaleType.FIT_XY);
+
         customBannerView2.setViewUrls(urls);
         customBannerView2.setOnBannerItemClickListener(new CustomBannerView.OnBannerItemClickListener() {
             @Override

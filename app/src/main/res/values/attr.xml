@@ -27,7 +27,8 @@
         <attr name="autoPlayDuration" format="integer|reference" />
         <attr name="scrollDuration" format="integer|reference" />
         <attr name="isAutoPlay" format="boolean" />
-        <attr name="defaultImage" format="integer|reference" />
+        <attr name="placeholder" format="integer|reference" />
+        <attr name="errorHolder" format="integer|reference" />
         <attr name="isIndicatorVisible" format="boolean" />
         <attr name="cornerRadii" format="dimension|reference" />
     </declare-styleable>

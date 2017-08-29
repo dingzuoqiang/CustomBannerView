@@ -69,7 +69,10 @@ public class CustomBannerView extends RelativeLayout {
 
     private int cornerRadii = 0;//拐角半径
 
-    private int defaultImage;
+    private int placeholder;//
+    private int errorHolder;
+    private ImageView.ScaleType scaleType = ImageView.ScaleType.CENTER_CROP;
+
     private boolean isLoop = true;
 
     private enum Shape {
@@ -148,7 +151,8 @@ public class CustomBannerView extends RelativeLayout {
         autoPlayDuration = array.getInt(R.styleable.BannerLayoutStyle_autoPlayDuration, autoPlayDuration);
         scrollDuration = array.getInt(R.styleable.BannerLayoutStyle_scrollDuration, scrollDuration);
         isAutoPlay = array.getBoolean(R.styleable.BannerLayoutStyle_isAutoPlay, isAutoPlay);
-        defaultImage = array.getResourceId(R.styleable.BannerLayoutStyle_defaultImage, defaultImage);
+        placeholder = array.getResourceId(R.styleable.BannerLayoutStyle_placeholder, placeholder);
+        errorHolder = array.getResourceId(R.styleable.BannerLayoutStyle_errorHolder, errorHolder);
         isIndicatorVisible = array.getBoolean(R.styleable.BannerLayoutStyle_isIndicatorVisible, isIndicatorVisible);
         cornerRadii = (int) array.getDimension(R.styleable.BannerLayoutStyle_cornerRadii, 0);
         array.recycle();
@@ -233,8 +237,16 @@ public class CustomBannerView extends RelativeLayout {
                 }
             }
         });
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        Glide.with(getContext()).load(res).centerCrop().into(imageView);
+        imageView.setScaleType(scaleType);
+        if (placeholder != 0 && errorHolder == 0) {
+            Glide.with(getContext()).load(res).placeholder(placeholder).crossFade().into(imageView);
+        } else if (placeholder == 0 && errorHolder != 0) {
+            Glide.with(getContext()).load(res).error(errorHolder).crossFade().into(imageView);
+        } else if (placeholder != 0 && errorHolder != 0) {
+            Glide.with(getContext()).load(res).placeholder(placeholder).error(errorHolder).crossFade().into(imageView);
+        } else {
+            Glide.with(getContext()).load(res).crossFade().into(imageView);
+        }
         return imageView;
     }
 
@@ -275,13 +287,21 @@ public class CustomBannerView extends RelativeLayout {
                 }
             }
         });
-        imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-        if (defaultImage != 0) {
-            Glide.with(getContext()).load(url).centerCrop().placeholder(defaultImage).crossFade().into(imageView);
+        imageView.setScaleType(scaleType);
+        if (placeholder != 0 && errorHolder == 0) {
+            Glide.with(getContext()).load(url).placeholder(placeholder).crossFade().into(imageView);
+        } else if (placeholder == 0 && errorHolder != 0) {
+            Glide.with(getContext()).load(url).error(errorHolder).crossFade().into(imageView);
+        } else if (placeholder != 0 && errorHolder != 0) {
+            Glide.with(getContext()).load(url).placeholder(placeholder).error(errorHolder).crossFade().into(imageView);
         } else {
-            Glide.with(getContext()).load(url).centerCrop().crossFade().into(imageView);
+            Glide.with(getContext()).load(url).crossFade().into(imageView);
         }
         return imageView;
+    }
+
+    public void setScaleType(ImageView.ScaleType scaleType) {
+        this.scaleType = scaleType;
     }
 
     //添加任意View视图
