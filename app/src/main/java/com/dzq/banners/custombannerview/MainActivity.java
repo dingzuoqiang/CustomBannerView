@@ -66,6 +66,9 @@ public class MainActivity extends AppCompatActivity {
         customBannerView3.setLoop(false);
         customBannerView3.setViewRes(viewRes);
 
+        CustomBannerView customBannerView4 = (CustomBannerView) findViewById(R.id.banner4);
+        customBannerView4.setViewRes(viewRes);
+
     }
 
 

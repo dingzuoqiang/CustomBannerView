@@ -53,12 +53,16 @@ public class CustomBannerView extends RelativeLayout {
 
     private int selectedIndicatorColor = 0xffff0000;
     private int unSelectedIndicatorColor = 0x88888888;
+    private int selectedIndicatorStrokeColor = 0xff0000ff;// 选中圆环颜色
+    private int unSelectedIndicatorStrokeColor = 0xffff0000;//未选中圆环颜色
 
     private Shape indicatorShape = Shape.oval;
     private int selectedIndicatorHeight = 6;
     private int selectedIndicatorWidth = 6;
     private int unSelectedIndicatorHeight = 6;
     private int unSelectedIndicatorWidth = 6;
+    private int selectedIndicatorStrokeWidth = 1;// 选中圆环width
+    private int unSelectedIndicatorStrokeWidth = 1;// 未选中圆环width
 
     private Position indicatorPosition = Position.centerBottom;
     private int autoPlayDuration = 2500;
@@ -76,7 +80,7 @@ public class CustomBannerView extends RelativeLayout {
     private boolean isLoop = true;
 
     private enum Shape {
-        rect, oval
+        rect, oval, ring
     }
 
     private enum Position {
@@ -124,6 +128,8 @@ public class CustomBannerView extends RelativeLayout {
         TypedArray array = getContext().obtainStyledAttributes(attrs, R.styleable.BannerLayoutStyle, defStyle, 0);
         selectedIndicatorColor = array.getColor(R.styleable.BannerLayoutStyle_selectedIndicatorColor, selectedIndicatorColor);
         unSelectedIndicatorColor = array.getColor(R.styleable.BannerLayoutStyle_unSelectedIndicatorColor, unSelectedIndicatorColor);
+        selectedIndicatorStrokeColor = array.getColor(R.styleable.BannerLayoutStyle_selectedIndicatorStrokeColor, selectedIndicatorStrokeColor);
+        unSelectedIndicatorStrokeColor = array.getColor(R.styleable.BannerLayoutStyle_unSelectedIndicatorStrokeColor, unSelectedIndicatorStrokeColor);
 
         maskStartColor = array.getColor(R.styleable.BannerLayoutStyle_maskStartColor, maskStartColor);
         maskEndColor = array.getColor(R.styleable.BannerLayoutStyle_maskEndColor, maskEndColor);
@@ -139,6 +145,9 @@ public class CustomBannerView extends RelativeLayout {
         selectedIndicatorWidth = (int) array.getDimension(R.styleable.BannerLayoutStyle_selectedIndicatorWidth, selectedIndicatorWidth);
         unSelectedIndicatorHeight = (int) array.getDimension(R.styleable.BannerLayoutStyle_unSelectedIndicatorHeight, unSelectedIndicatorHeight);
         unSelectedIndicatorWidth = (int) array.getDimension(R.styleable.BannerLayoutStyle_unSelectedIndicatorWidth, unSelectedIndicatorWidth);
+
+        selectedIndicatorStrokeWidth = (int) array.getDimension(R.styleable.BannerLayoutStyle_selectedIndicatorStrokeWidth, selectedIndicatorStrokeWidth);
+        unSelectedIndicatorStrokeWidth = (int) array.getDimension(R.styleable.BannerLayoutStyle_unSelectedIndicatorStrokeWidth, unSelectedIndicatorStrokeWidth);
 
         int position = array.getInt(R.styleable.BannerLayoutStyle_indicatorPosition, Position.centerBottom.ordinal());
         for (Position position1 : Position.values()) {
@@ -176,6 +185,13 @@ public class CustomBannerView extends RelativeLayout {
             case oval:
                 unSelectedGradientDrawable.setShape(GradientDrawable.OVAL);
                 selectedGradientDrawable.setShape(GradientDrawable.OVAL);
+                break;
+
+            case ring:
+                unSelectedGradientDrawable.setShape(GradientDrawable.OVAL);
+                selectedGradientDrawable.setShape(GradientDrawable.OVAL);
+                unSelectedGradientDrawable.setStroke(unSelectedIndicatorStrokeWidth, unSelectedIndicatorStrokeColor);
+                selectedGradientDrawable.setStroke(selectedIndicatorStrokeWidth, selectedIndicatorStrokeColor);
                 break;
         }
         unSelectedGradientDrawable.setColor(unSelectedIndicatorColor);

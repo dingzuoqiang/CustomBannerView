@@ -78,5 +78,26 @@
         app:unSelectedIndicatorHeight="10dp"
         app:unSelectedIndicatorWidth="10dp" />
 
+    <com.dzq.widget.CustomBannerView
+        android:id="@+id/banner4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        app:cornerRadii="5dp"
+        app:indicatorMargin="@dimen/indicatorMargin"
+        app:indicatorPosition="centerTop"
+        app:indicatorShape="ring"
+        app:indicatorSpace="@dimen/indicatorSpace"
+        app:isAutoPlay="false"
+        app:isIndicatorVisible="true"
+        app:scrollDuration="1000"
+        app:selectedIndicatorColor="#ffffff"
+        app:selectedIndicatorHeight="10dp"
+        app:selectedIndicatorWidth="10dp"
+        app:unSelectedIndicatorColor="#00000000"
+        app:unSelectedIndicatorHeight="10dp"
+        app:unSelectedIndicatorWidth="10dp" />
+
 
 </LinearLayout>

@@ -6,14 +6,19 @@
         <attr name="maskEndColor" format="color|reference" />
         <attr name="selectedIndicatorColor" format="color|reference" />
         <attr name="unSelectedIndicatorColor" format="color|reference" />
+        <attr name="selectedIndicatorStrokeColor" format="color|reference" />
+        <attr name="unSelectedIndicatorStrokeColor" format="color|reference" />
         <attr name="indicatorShape" format="enum">
             <enum name="rect" value="0" />
             <enum name="oval" value="1" />
+            <enum name="ring" value="2" />
         </attr>
         <attr name="selectedIndicatorHeight" format="dimension|reference" />
         <attr name="selectedIndicatorWidth" format="dimension|reference" />
         <attr name="unSelectedIndicatorHeight" format="dimension|reference" />
         <attr name="unSelectedIndicatorWidth" format="dimension|reference" />
+        <attr name="selectedIndicatorStrokeWidth" format="dimension|reference" />
+        <attr name="unSelectedIndicatorStrokeWidth" format="dimension|reference" />
         <attr name="indicatorPosition" format="enum">
             <enum name="centerBottom" value="0" />
             <enum name="rightBottom" value="1" />
